@@ -21,7 +21,6 @@ if (isset($_POST['imie']) && !empty($_POST['imie'])) {
 if (isset($_POST['email']) && !empty($_POST['email'])) {
     $id = $_POST['id'];
     $email = $_POST['email'];
-
     $query = $link->prepare("UPDATE users SET email=? WHERE id=?");
     $query->bind_param('si', $email, $id);
     $query->execute();
@@ -42,7 +41,6 @@ if (isset($_POST['rola']) && !empty($_POST['rola'])) {
     if ($rola === 'użytkownik') {
         $rola = 'uzytkownik';
     }
-
     $query = $link->prepare("UPDATE users SET rola=? WHERE id=?");
     $query->bind_param('si', $rola, $id);
     $query->execute();

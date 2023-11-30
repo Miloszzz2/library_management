@@ -1,9 +1,4 @@
 <?php
-if (!isset($_SESSION['userrole']) && ($_SESSION['userrole'] == 'gosc')) {
-    echo '<script>alert("Odmowa dostepu")</script>';
-    session_destroy();
-    header("refresh:0.0001; url=index.php");
-}
 $currentpagenumber = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($currentpagenumber - 1) * 10;
 

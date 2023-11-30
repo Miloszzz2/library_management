@@ -43,6 +43,7 @@ while ($row = $result2->fetch_assoc()) {
                     <button class="nav-link" id="v-pills-delete-tab" data-bs-toggle="pill" data-bs-target="#v-pills-delete" type="button" role="tab" aria-controls="v-pills-delete" aria-selected="false">Usuwanie książek</button>
                     <button class="nav-link" id="v-pills-modify-tab" data-bs-toggle="pill" data-bs-target="#v-pills-modify" type="button" role="tab" aria-controls="v-pills-modify" aria-selected="false">Modyfikacja książek</button>
                     <button class="nav-link" id="v-pills-manage-tab" data-bs-toggle="pill" data-bs-target="#v-pills-manage" type="button" role="tab" aria-controls="v-pills-manage" aria-selected="false">Zarządzanie użytkownikami</button>
+                    <button class="nav-link" id="v-pills-unactive-tab" data-bs-toggle="pill" data-bs-target="#v-pills-unactive" type="button" role="tab" aria-controls="v-pills-unactive" aria-selected="false">Nie aktywni użytkownicy</button>
                 </div>
                 <div class="tab-content w-100 pb-3 overflow-auto" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-add" role="tabpanel" aria-labelledby="v-pills-add-tab" tabindex="0">
@@ -67,9 +68,14 @@ while ($row = $result2->fetch_assoc()) {
                         include './usertable.php';
                         ?>
                     </div>
+                    <div class="tab-pane fade" id="v-pills-unactive" role="tabpanel" aria-labelledby="v-pills-unactive-tab" tabindex="0">
+                        <?php
+                        include './unactiveUserTable.php';
+                        ?>
+                    </div>
                 </div>
             </div>
-            <a href="/" class="btn btn-secondary">Strona główna</a>
+            <a href="/" class="btn btn-secondary mt-2">Strona główna</a>
         </main>
 
     <?php

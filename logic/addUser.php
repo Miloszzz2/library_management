@@ -9,15 +9,17 @@ if (isset($_POST['imie']) && !empty($_POST['imie']) && !empty($_POST['nazwisko']
     $query2->bind_param('s', $email);
     $query2->execute();
     $result = $query2->get_result();
-    $isThatUserInBase = mysqli_num_rows($result) > 1 ? true : false;
-    if ($isThatUserInBase == 1) {
+    $currentDate = new DateTime();
+    $currentDate->modify('+30 days');
+    $futureDate = $currentDate->format('Y-m-d');
+    $isThatUserInBase = mysqli_num_rows($result) >= 1 ? true : false;
+    if ($isThatUserInBase >= 1) {
         echo '<script>alert("Użytkownik o takim adresie email istnieje już na naszym portalu")</script>';
-        session_destroy();
-        header('refresh:0.1; url=../admin.php');
+        header('refresh:0.01; url=../admin.php');
     } else {
         $password = hash('sha256', $_POST['password']);
-        $query = $link->prepare("INSERT INTO users VALUES (NULL, ?, ?, ?, ?, ?)");
-        $query->bind_param('sssss', $imie, $nazwisko, $email, $password, $rola);
+        $query = $link->prepare("INSERT INTO users VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param('ssssss', $imie, $nazwisko, $email, $password, $rola, $futureDate);
         $query->execute();
         header("Location: ../admin.php");
     }

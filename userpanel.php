@@ -21,6 +21,11 @@ $query->execute();
 $result = $query->get_result();
 ?>
 <div class="d-flex flex-column align-items-center">
+    <div>
+        <a href="rents.php" class="btn btn-primary my-4">Zobacz swoje wypożyczenia</a>
+        <a href="rentBook.php" class="btn btn-primary my-4">Wypożycz książkę</a>
+    </div>
+
     <h2 class="mb-4">Baza książek</h2>
     <table class="table table-bordered table-hover">
         <thead>

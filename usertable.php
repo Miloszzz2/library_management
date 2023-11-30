@@ -33,6 +33,7 @@ $result = $query->get_result();
                     <th scope="col">Email</th>
                     <th scope="col" style='width:200px; overflow:hidden;'>Hasło</th>
                     <th class="col">Rola</th>
+                    <th class="col">Ważność</th>
                     <th></th>
                 </tr>
             </thead>
@@ -47,7 +48,7 @@ $result = $query->get_result();
                     $email = $row['email'];
                     $haslo = $row['haslo'];
                     $rola = $row['rola'];
-
+                    $waznoscKonta = $row['waznoscKonta'];
                     if ($id !== $currentuserid) {
                         echo "<tr>";
                         echo "<th scope='row'>{$i}</th>";
@@ -56,6 +57,7 @@ $result = $query->get_result();
                         echo "<td onclick='changeElementToInput(this,{$id})' id='email'>{$email}</td>";
                         echo "<td onclick='changeElementToInput(this,{$id})' id='haslo' style='max-width:200px; overflow:auto;'>{$haslo}</td>";
                         echo "<td onclick='changeElementToInput(this,{$id})' id='rola'>{$rola}</td>";
+                        echo "<td onclick='changeElementToInput(this,{$id})' id='waznoscKonta'>{$waznoscKonta}</td>";
                         echo "<td><button onclick='changeIdFormValue2({$id})' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#manageUserModal'>Zarządzaj</button></td>";
                         echo "</tr>";
                         $i++;

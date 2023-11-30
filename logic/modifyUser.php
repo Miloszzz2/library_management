@@ -12,7 +12,6 @@ if (isset($_POST['nazwisko']) && !empty($_POST['nazwisko'])) {
 if (isset($_POST['imie']) && !empty($_POST['imie'])) {
     $id = $_POST['id'];
     $imie = $_POST['imie'];
-
     $query = $link->prepare("UPDATE users SET imie=? WHERE id=?");
     $query->bind_param('si', $imie, $id);
     $query->execute();
@@ -43,6 +42,14 @@ if (isset($_POST['rola']) && !empty($_POST['rola'])) {
     }
     $query = $link->prepare("UPDATE users SET rola=? WHERE id=?");
     $query->bind_param('si', $rola, $id);
+    $query->execute();
+    header("Location: ../admin.php");
+}
+if (isset($_POST['waznoscKonta']) && !empty($_POST['waznoscKonta'])) {
+    $id = $_POST['id'];
+    $waznoscKonta =  $_POST['waznoscKonta'];
+    $query = $link->prepare("UPDATE users SET waznoscKonta=? WHERE id=?");
+    $query->bind_param('si', $waznoscKonta, $id);
     $query->execute();
     header("Location: ../admin.php");
 }

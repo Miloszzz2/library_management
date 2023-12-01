@@ -17,7 +17,7 @@ $result = $query->get_result();
 
 ?>
 <div class="d-flex flex-column align-items-center">
-    <h2 class="mb-4">Baza książek</h2>
+    <h2 class="mb-4">Nieaktywni użytkownicy</h2>
     <div>
         <table class="table table-bordered table-hover p-2">
             <thead>
